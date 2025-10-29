@@ -25,13 +25,13 @@ const Footer = () => {
 
           {/* Navigation Links */}
           <nav className="flex space-x-6 text-sm font-medium">
-            <a href="#" className="text-gray-300 hover:text-white transition duration-300">
+            <a href="/contact-us" className="text-gray-300 hover:text-white transition duration-300">
               Contact
             </a>
-            <a href="#" className="text-gray-300 hover:text-white transition duration-300">
+            <a href="/terms" className="text-gray-300 hover:text-white transition duration-300">
               Terms
             </a>
-            <a href="#" className="text-gray-300 hover:text-white transition duration-300">
+            <a href="/privacy-policy" className="text-gray-300 hover:text-white transition duration-300">
               Privacy Policy
             </a>
           </nav>
