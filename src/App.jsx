@@ -8,6 +8,7 @@ import TermsAndConditions from './pages/TermsAndConditions.jsx'
 import PrivacyPolicy from './pages/PrivacyPolicy.jsx'
 import B2B from './pages/subHome/B2B.jsx'
 import B2C from './pages/subHome/B2C.jsx'
+import ScrollToTop from './components/ScrollToTop.jsx'
 
 function App() {
    const [loading, setLoading] = useState(true);
@@ -40,7 +41,7 @@ function App() {
     <Route path='/terms' element={<TermsAndConditions/>} />
     <Route path='/privacy-policy' element={<PrivacyPolicy/>} />
    </Routes>
- 
+   <ScrollToTop />
        
     </>
   )

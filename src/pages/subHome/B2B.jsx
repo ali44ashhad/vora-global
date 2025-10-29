@@ -152,7 +152,7 @@ const Header = () => {
                     transition={{ duration: 0.5 }}
                   >
                      
-                   <a href="/">
+                   <a href="/b2b">
                     <img
           src={logo}
           alt="vora-global-logo"
