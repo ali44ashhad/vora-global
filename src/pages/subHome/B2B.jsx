@@ -2,7 +2,7 @@ import React, { useCallback, useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { FaWhatsapp, FaLinkedin, FaTwitter, FaInstagram } from "react-icons/fa";
 import { Menu, X, ChevronLeft, ChevronRight, Phone, Mail, MapPin } from "lucide-react";
-
+import logo from "../../assets/logo/voralogo.png"
 const B2B = () => {
   const waNumber = "971501234567";
   const prefill = encodeURIComponent("Hi, I'm interested in your B2B lead generation services.");
@@ -145,14 +145,22 @@ const Header = () => {
       <nav className="container mx-auto px-6 py-4">
         <div className="flex justify-between items-center">
           {/* Logo */}
-          <motion.div
-            className="text-2xl font-bold text-[#D2AA51]"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.5 }}
-          >
-            Vora Global
-          </motion.div>
+         <motion.div
+                    className="flex items-center space-x-2"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ duration: 0.5 }}
+                  >
+                     
+                   <a href="/">
+                    <img
+          src={logo}
+          alt="vora-global-logo"
+          className="h-10 w-auto md:h-14 object-contain"
+        />
+        
+                   </a>
+                  </motion.div>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex space-x-8">
@@ -675,7 +683,7 @@ const Footer = () => {
 
         {/* Bottom Bar */}
         <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-500">
-          <p>&copy; 2024 Vora Global. All rights reserved.</p>
+          <p>&copy; 2025 Vora Global. All rights reserved.</p>
         </div>
       </div>
     </footer>
