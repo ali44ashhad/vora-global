@@ -594,7 +594,7 @@ const CTASection = ({ onWhatsAppClick }) => {
             Ready to Get <span className="text-[#D2AA51]">Verified Leads</span>?
           </h2>
           <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
-            Buy verified leads from our advance campaigns or build your own custom campaign
+            Generate verified leads from our advance campaigns or build your own custom campaign
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -605,7 +605,7 @@ const CTASection = ({ onWhatsAppClick }) => {
               whileTap={{ scale: 0.95 }}
             >
               <FaWhatsapp className="text-xl" />
-              Buy Verified Leads
+               Generate Verified Leads
             </motion.button>
             
             <motion.button
