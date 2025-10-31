@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { FaWhatsapp, FaLinkedin, FaTwitter, FaInstagram } from "react-icons/fa";
 import { Menu, X, ChevronLeft, ChevronRight, Phone, Mail, MapPin } from "lucide-react";
 import logo from "../../assets/logo/voralogo.png"
+import b2b from "../../assets/homeimages/b2b.jpg"
 const B2B = () => {
   const waNumber = "971501234567";
   const prefill = encodeURIComponent("Hi, I'm interested in your B2B lead generation services.");
@@ -218,29 +219,45 @@ const Header = () => {
   );
 };
 
-// Hero Section Component
 const HeroSection = ({ onWhatsAppClick }) => {
   return (
-    <section id="home" className="relative min-h-screen bg-gray-900 text-white flex items-center justify-center overflow-hidden pt-20">
-      {/* Background Animation */}
-      <div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-blue-900 to-gray-800" />
-      
-      {/* Floating Particles */}
-      <div className="absolute inset-0 overflow-hidden">
+    <section
+      id="home"
+      className="relative min-h-screen bg-gray-900 text-white flex items-center justify-center overflow-hidden pt-20"
+    >
+      {/* Parallax Background (z-0) */}
+      <motion.img
+        src={b2b}
+        alt="Hero Background"
+        className="absolute inset-0 w-full h-full object-cover z-0"
+        initial={{ scale: 1.15, opacity: 0.8 }}
+        animate={{ scale: 1, opacity: 1 }}
+        transition={{ duration: 2.5, ease: "easeOut" }}
+        draggable={false}
+      />
+
+      {/* Cinematic Gradient Overlay (semi-transparent so bg is visible) */}
+      <div className="absolute inset-0 bg-gradient-to-br from-black/70 via-black/40 to-transparent z-10 pointer-events-none" />
+
+      {/* Floating Particles (above bg, below content) */}
+      <div className="absolute inset-0 overflow-hidden z-15 pointer-events-none">
         {[...Array(20)].map((_, i) => (
           <motion.span
             key={i}
-            className="absolute w-1 h-1 bg-white/40 rounded-full"
+            className="absolute w-[3px] h-[3px] rounded-full bg-white/30"
             style={{
               top: `${Math.random() * 100}%`,
               left: `${Math.random() * 100}%`,
+              transform: "translate(-50%, -50%)",
             }}
+            initial={{ y: 0, opacity: 0.15, scale: 0.85 }}
             animate={{
-              y: ["0%", "-150%"],
-              opacity: [0.1, 0.8, 0],
+              y: ["0%", "-160%"],
+              opacity: [0.15, 0.85, 0],
+              scale: [0.85, 1, 0.6],
             }}
             transition={{
-              duration: 5 + Math.random() * 5,
+              duration: 6 + Math.random() * 6,
               repeat: Infinity,
               delay: Math.random() * 3,
               ease: "easeInOut",
@@ -249,7 +266,7 @@ const HeroSection = ({ onWhatsAppClick }) => {
         ))}
       </div>
 
-      {/* Hero Content */}
+      {/* Hero Content (z-20) */}
       <div className="relative z-20 text-center px-6 max-w-4xl mx-auto">
         <motion.h1
           className="text-4xl md:text-6xl font-bold mb-6 leading-tight drop-shadow-[0_4px_20px_rgba(0,0,0,0.6)]"
@@ -257,8 +274,7 @@ const HeroSection = ({ onWhatsAppClick }) => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
         >
-          Verified Leads.{" "}
-          <span className="text-[#D2AA51]">Real Results.</span> No Guesswork.
+          Verified Leads. <span className="text-[#D2AA51]">Real Results.</span> No Guesswork.
         </motion.h1>
 
         <motion.p
@@ -267,38 +283,28 @@ const HeroSection = ({ onWhatsAppClick }) => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.3 }}
         >
-          Exclusive buyer, seller & investor leads from our advance running campaigns for B2B Business, 
+          Exclusive buyer, seller & investor leads from our advance running campaigns for B2B businesses,
           brokers, developers & marketers — powered by advanced targeting and automation.
         </motion.p>
 
         {/* CTA Button */}
         <motion.button
           onClick={onWhatsAppClick}
-          className="inline-flex items-center gap-3 bg-[#D2AA51] text-gray-900 px-8 py-4 rounded-full font-semibold text-lg shadow-[0_0_40px_rgba(210,170,81,0.4)] relative overflow-hidden group"
-          initial={{ opacity: 0, scale: 0.9 }}
+          className="inline-flex items-center gap-3 bg-[#D2AA51] text-gray-900 px-8 py-4 rounded-full font-semibold text-lg shadow-[0_0_40px_rgba(210,170,81,0.35)] relative overflow-hidden group"
+          initial={{ opacity: 0, scale: 0.98 }}
           animate={{
             opacity: 1,
             scale: [1, 1.04, 1],
             boxShadow: [
-              "0 0 40px rgba(210,170,81,0.3)",
-              "0 0 70px rgba(210,170,81,0.7)",
-              "0 0 40px rgba(210,170,81,0.3)"
+              "0 0 40px rgba(210,170,81,0.25)",
+              "0 0 70px rgba(210,170,81,0.6)",
+              "0 0 40px rgba(210,170,81,0.25)",
             ],
           }}
           transition={{
-            opacity: { duration: 0.8, delay: 0.5 },
-            scale: {
-              duration: 3,
-              repeat: Infinity,
-              repeatType: "reverse",
-              ease: "easeInOut",
-            },
-            boxShadow: {
-              duration: 3,
-              repeat: Infinity,
-              repeatType: "reverse",
-              ease: "easeInOut",
-            },
+            opacity: { duration: 0.6, delay: 0.5 },
+            scale: { duration: 3, repeat: Infinity, repeatType: "reverse", ease: "easeInOut" },
+            boxShadow: { duration: 3, repeat: Infinity, repeatType: "reverse", ease: "easeInOut" },
           }}
           whileHover={{ scale: 1.08 }}
           whileTap={{ scale: 0.95 }}
@@ -306,12 +312,9 @@ const HeroSection = ({ onWhatsAppClick }) => {
           {/* Shine Effect */}
           <motion.span
             className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent skew-x-12"
+            aria-hidden
             animate={{ x: ["-150%", "200%"] }}
-            transition={{
-              duration: 3,
-              repeat: Infinity,
-              ease: "easeInOut",
-            }}
+            transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
           />
           <FaWhatsapp className="text-xl relative z-10" />
           <span className="relative z-10">Get Verified Leads</span>
@@ -320,8 +323,8 @@ const HeroSection = ({ onWhatsAppClick }) => {
 
       {/* Bottom Glow */}
       <motion.div
-        className="absolute bottom-0 left-0 w-full h-40 bg-gradient-to-t from-[#D2AA51]/20 to-transparent blur-2xl"
-        animate={{ opacity: [0.4, 0.8, 0.4] }}
+        className="absolute bottom-0 left-0 w-full h-40 bg-gradient-to-t from-[#D2AA51]/20 to-transparent blur-2xl z-10 pointer-events-none"
+        animate={{ opacity: [0.35, 0.85, 0.35] }}
         transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
       />
     </section>
@@ -651,11 +654,11 @@ const Footer = () => {
             <div className="space-y-3">
               <div className="flex items-center text-gray-400">
                 <Phone size={16} className="mr-3 text-[#D2AA51]" />
-                <span>+971 50 123 4567</span>
+                <span>+91 9167632383</span>
               </div>
               <div className="flex items-center text-gray-400">
                 <Mail size={16} className="mr-3 text-[#D2AA51]" />
-                <span>info@voraglobal.com</span>
+                <span>voraglobalmanagement@gmail.com</span>
               </div>
               <div className="flex items-center text-gray-400">
                 <MapPin size={16} className="mr-3 text-[#D2AA51]" />

@@ -209,7 +209,7 @@ const About = () => {
                     }}
                   >
                     <item.icon className="w-12 h-12 text-[#FFD700] mb-5 drop-shadow-[0_0_15px_rgba(255,215,0,0.6)]" />
-                    <h3 className="text-xl font-semibold uppercase mb-3">
+                    <h3 className="text-xl text-gray-50 font-semibold uppercase mb-3">
                       {item.title}
                     </h3>
                     <p className="text-sm text-white/80 leading-relaxed max-w-xs">

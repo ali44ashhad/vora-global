@@ -1,6 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
@@ -131,14 +132,14 @@ const TermsAndConditions = () => {
             <h2 className="text-2xl font-semibold text-[#D2AA51] mb-3">9. Contact Us</h2>
             <p>
               If you have any questions about these Terms & Conditions, please reach out to us at{" "}
-              <span className="text-[#FFD700]">info@yourcompany.com</span>.
+              <span className="text-[#FFD700]">voraglobalmanagement@gmail.com</span>.
             </p>
           </div>
  
         </motion.div>
       </div>
     </section>
-    <footer/>
+    <Footer/>
     </>
   );
 };

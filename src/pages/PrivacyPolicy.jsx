@@ -144,7 +144,7 @@ const PrivacyPolicy = () => {
             </h2>
             <p>
               For questions about this Privacy Policy or your data rights, please contact us at{" "}
-              <span className="text-[#FFD700]">privacy@yourcompany.com</span>.
+              <span className="text-[#FFD700]">voraglobalmanagement@gmail.com</span>.
             </p>
           </div>
 

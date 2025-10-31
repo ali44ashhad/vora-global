@@ -14,24 +14,15 @@ const leftVariant = {
   visible: { opacity: 1, x: 0, transition: { duration: 0.8, ease: 'easeOut' } },
 };
 
-const rightVariant = {
-  hidden: { opacity: 0, x: 80 },
-  visible: { opacity: 1, x: 0, transition: { duration: 0.8, ease: 'easeOut' } },
-};
-
-const cardContainerVariant = {
-  hidden: {},
-  visible: { transition: { staggerChildren: 0.12 } },
-};
-
-const cardVariant = {
-  hidden: { opacity: 0, y: 18, scale: 0.99 },
-  visible: { opacity: 1, y: 0, scale: 1, transition: { duration: 0.45, ease: 'easeOut' } },
-};
-
-const imgVariant = {
-  hidden: { opacity: 0, y: 12, scale: 0.98 },
-  visible: { opacity: 1, y: 0, scale: 1, transition: { duration: 0.6, ease: 'easeOut' } },
+// Smooth fade + float animation for the single image
+const floatImageVariant = {
+  hidden: { opacity: 0, y: 40, scale: 0.95 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    scale: 1,
+    transition: { duration: 1, ease: 'easeOut' },
+  },
 };
 
 const Services = () => {
@@ -52,7 +43,8 @@ const Services = () => {
 
   return (
     <>
-    <Navbar/>
+      <Navbar />
+
       {/* HERO SECTION */}
       <section className="relative overflow-hidden bg-[#0D0D21] py-24 sm:py-16 lg:py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid gap-10 lg:grid-cols-2 items-center relative z-10">
@@ -82,75 +74,74 @@ const Services = () => {
               and connect you with high-quality buyers and investors.
             </p>
 
-           {/* WhatsApp Button */}
-<motion.button
-  onClick={() => window.open("https://wa.me/919999999999", "_blank")}
-  className="inline-flex items-center gap-3 bg-[#D2AA51] text-gray-900 px-8 py-4 rounded-full font-semibold text-lg shadow-[0_0_40px_rgba(210,170,81,0.4)] relative overflow-hidden group"
-  initial={{ opacity: 0, scale: 0.9 }}
-  animate={{
-    opacity: 1,
-    scale: [1, 1.04, 1],
-    boxShadow: [
-      "0 0 40px rgba(210,170,81,0.3)",
-      "0 0 70px rgba(210,170,81,0.7)",
-      "0 0 40px rgba(210,170,81,0.3)",
-    ],
-  }}
-  transition={{
-    opacity: { duration: 0.8, delay: 0.5 },
-    scale: {
-      duration: 3,
-      repeat: Infinity,
-      repeatType: "reverse",
-      ease: "easeInOut",
-    },
-    boxShadow: {
-      duration: 3,
-      repeat: Infinity,
-      repeatType: "reverse",
-      ease: "easeInOut",
-    },
-  }}
-  whileHover={{ scale: 1.08 }}
-  whileTap={{ scale: 0.95 }}
->
-  <motion.span
-    className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent skew-x-12"
-    animate={{ x: ["-150%", "200%"] }}
-    transition={{
-      duration: 3,
-      repeat: Infinity,
-      ease: "easeInOut",
-    }}
-  />
-  <FaWhatsapp className="text-xl relative z-10" />
-  <span className="relative z-10">Contact us</span>
-</motion.button>
-
+            {/* WhatsApp Button */}
+            <motion.button
+              onClick={() => window.open("https://wa.me/919999999999", "_blank")}
+              className="inline-flex w-auto self-start shrink-0 items-center gap-3 bg-[#D2AA51] text-gray-900 px-8 py-4 rounded-full font-semibold text-lg shadow-[0_0_40px_rgba(210,170,81,0.4)] relative overflow-hidden group"
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{
+                opacity: 1,
+                scale: [1, 1.04, 1],
+                boxShadow: [
+                  "0 0 40px rgba(210,170,81,0.3)",
+                  "0 0 70px rgba(210,170,81,0.7)",
+                  "0 0 40px rgba(210,170,81,0.3)",
+                ],
+              }}
+              transition={{
+                opacity: { duration: 0.8, delay: 0.5 },
+                scale: {
+                  duration: 3,
+                  repeat: Infinity,
+                  repeatType: "reverse",
+                  ease: "easeInOut",
+                },
+                boxShadow: {
+                  duration: 3,
+                  repeat: Infinity,
+                  repeatType: "reverse",
+                  ease: "easeInOut",
+                },
+              }}
+              whileHover={{ scale: 1.08 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <motion.span
+                className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent skew-x-12"
+                animate={{ x: ["-150%", "200%"] }}
+                transition={{
+                  duration: 3,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                }}
+              />
+              <FaWhatsapp className="text-xl relative z-10" />
+              <span className="relative z-10">Contact us</span>
+            </motion.button>
           </motion.div>
 
-          {/* RIGHT IMAGES */}
+          {/* RIGHT IMAGE (Single Animated Image) */}
           <motion.div
-            className="order-2 grid grid-cols-1 sm:grid-cols-2 gap-4"
-            variants={rightVariant}
+            className="order-2 flex justify-center lg:justify-end"
+            variants={floatImageVariant}
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, amount: 0.2 }}
+            viewport={{ once: true, amount: 0.3 }}
           >
-            {[images.serviceHero1, images.serviceHero2, images.serviceHero3, images.serviceHero4].map((img, i) => (
-              <motion.div
-                key={i}
-                className="relative aspect-[3/2] overflow-hidden rounded-lg shadow-xl"
-                variants={imgVariant}
-              >
-                <img
-                  src={img}
-                  alt={`Service Hero ${i + 1}`}
-                  className="w-full h-full object-cover"
-                  loading="lazy"
-                />
-              </motion.div>
-            ))}
+            <motion.img
+              src={images.serviceHero1}
+              alt="Service Hero"
+              className="rounded-2xl shadow-2xl w-full max-w-md object-cover"
+              animate={{
+                y: [0, -15, 0],
+              }}
+              transition={{
+                duration: 4,
+                repeat: Infinity,
+                repeatType: "reverse",
+                ease: "easeInOut",
+              }}
+            />
           </motion.div>
         </div>
       </section>
@@ -172,7 +163,6 @@ const Services = () => {
 
           <motion.div
             className="grid gap-6 grid-cols-1 sm:grid-cols-2 xl:gap-10 max-w-5xl mx-auto"
-            variants={cardContainerVariant}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.15 }}
@@ -186,7 +176,7 @@ const Services = () => {
                   background: f.cardBg || '#111',
                   color: f.textColor || '#fff',
                 }}
-                variants={cardVariant}
+                whileHover={{ scale: 1.02 }}
               >
                 <div className="flex justify-center items-center h-36 sm:h-40 mb-5">
                   {f.illustration ? (
@@ -210,7 +200,8 @@ const Services = () => {
           </motion.div>
         </div>
       </section>
-      <Footer/>
+
+      <Footer />
     </>
   );
 };
