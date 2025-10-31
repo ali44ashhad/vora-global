@@ -121,7 +121,7 @@ export const features = [
   {
     id: 1,
     title: "Communications",
-    desc: "Pretium lectus quam id leo in vitae turpis. Mattis pellentesque id nibh tortor id.",
+    desc: "Seamless communication tools designed to keep your team connected, efficient, and informed at all times.",
     illustration: images.reaEstate,
     cta: "MORE",
     cardBg: "#0F1724",   
@@ -130,7 +130,7 @@ export const features = [
   {
     id: 2,
     title: "Inspired Design",
-    desc: "Nunc consequat interdum varius sit amet mattis vulputate enim nulla. Risus feugiat.",
+    desc: "Beautiful, modern, and user-focused designs crafted to enhance engagement and create lasting impressions.",
     illustration: images.marketing,
     cta: "MORE",
     cardBg: "#071627",   // deep navy teal

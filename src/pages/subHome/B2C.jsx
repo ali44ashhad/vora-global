@@ -11,7 +11,7 @@ const B2C = () => {
   const waLink = `https://wa.me/${waNumber}?text=${prefill}`;
   const openWhatsApp = useCallback(() => window.open(waLink, "_blank"), [waLink]);
 
-  // Testimonials data
+  // Testimonials data - Updated with your content
   const testimonials = [
     {
       id: 1,
@@ -26,17 +26,10 @@ const B2C = () => {
       name: "Khaled A.",
       role: "UAE Resident",
       rating: 5
-    },
-    {
-      id: 3,
-      quote: "Found my dream apartment through Vora Global. The team negotiated a great deal and handled all paperwork seamlessly.",
-      name: "Sophia M.",
-      role: "Property Owner",
-      rating: 5
     }
   ];
 
-  // Services data
+  // Services data - Updated structure
   const services = [
     {
       title: "Ready & Off-Plan Property Consultation",
@@ -84,7 +77,7 @@ const B2C = () => {
     }
   ];
 
-  // Process data
+  // Process data - Updated with your content
   const processes = [
     {
       id: "01",
@@ -155,7 +148,7 @@ const B2C = () => {
   );
 };
 
-// Header Component
+// Header Component (keep your existing header code)
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
@@ -208,7 +201,7 @@ const Header = () => {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex space-x-8">
-            {['home', 'properties', 'services', 'process', 'testimonials', 'contact'].map((item) => (
+            {['home', 'about', 'properties', 'services', 'process', 'testimonials', 'contact'].map((item) => (
               <button
                 key={item}
                 onClick={() => scrollToSection(item)}
@@ -251,7 +244,7 @@ const Header = () => {
               exit={{ opacity: 0, height: 0 }}
               className="md:hidden mt-4 space-y-4 pb-4"
             >
-              {['home', 'properties', 'services', 'process', 'testimonials', 'contact'].map((item) => (
+              {['home', 'about', 'properties', 'services', 'process', 'testimonials', 'contact'].map((item) => (
                 <button
                   key={item}
                   onClick={() => scrollToSection(item)}
@@ -278,11 +271,11 @@ const Header = () => {
   );
 };
 
-
+// Updated Hero Section with your content
 const HeroSection = ({ onWhatsAppClick }) => {
   return (
-    <section className="relative min-h-screen text-white flex items-center justify-center overflow-hidden">
-      {/* Parallax Background (z-0) */}
+    <section id="home" className="relative min-h-screen text-white flex items-center justify-center overflow-hidden">
+      {/* Parallax Background */}
       <motion.img
         src={b2c}
         alt="Dubai Skyline"
@@ -293,56 +286,28 @@ const HeroSection = ({ onWhatsAppClick }) => {
         draggable={false}
       />
 
-      {/* Cinematic Gradient Overlay (z-10) */}
+      {/* Gradient Overlay */}
       <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/40 to-transparent z-10 pointer-events-none" />
 
-      {/* Floating Dust/Light Particles (above bg, below content) */}
-      <div className="absolute inset-0 overflow-hidden z-15 pointer-events-none">
-        {[...Array(20)].map((_, i) => (
-          <motion.span
-            key={i}
-            className="absolute w-[3px] h-[3px] rounded-full bg-white/30"
-            style={{
-              top: `${Math.random() * 100}%`,
-              left: `${Math.random() * 100}%`,
-              transform: `translate(-50%, -50%)`,
-            }}
-            initial={{ y: 0, opacity: 0.15, scale: 0.8 }}
-            animate={{
-              y: ["0%", "-160%"],
-              opacity: [0.15, 0.8, 0],
-              scale: [0.8, 1, 0.6],
-            }}
-            transition={{
-              duration: 6 + Math.random() * 6,
-              repeat: Infinity,
-              delay: Math.random() * 3,
-              ease: "easeInOut",
-            }}
-          />
-        ))}
-      </div>
-
-      {/* Hero Content (z-20) */}
+      {/* Hero Content */}
       <div className="relative z-20 text-center px-6 max-w-4xl mx-auto">
         <motion.h1
-          className="text-4xl md:text-6xl font-bold mb-6 leading-tight drop-shadow-[0_4px_20px_rgba(0,0,0,0.6)]"
+          className="text-5xl md:text-7xl font-bold mb-6 leading-tight"
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
         >
-          Real Estate. <span className="text-[#D2AA51]">Marketing.</span> Lead
-          <br /> Generation — All Under One Roof.
+          Invest <span className="text-[#D2AA51]">Smarter.</span><br />
+          Live <span className="text-[#D2AA51]">Better.</span>
         </motion.h1>
 
         <motion.p
-          className="text-xl text-gray-300 mb-12 max-w-2xl mx-auto"
+          className="text-xl md:text-2xl text-gray-300 mb-12 max-w-3xl mx-auto leading-relaxed"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.3 }}
         >
-          Helping investors, brokers & businesses grow faster through verified leads,
-          smart marketing, and profitable property deals.
+          Discover Dubai's most profitable property deals — verified, transparent & personally guided by Vora Global.
         </motion.p>
 
         <motion.button
@@ -352,42 +317,23 @@ const HeroSection = ({ onWhatsAppClick }) => {
           animate={{
             opacity: 1,
             scale: [1, 1.04, 1],
-            boxShadow: [
-              "0 0 40px rgba(210,170,81,0.25)",
-              "0 0 70px rgba(210,170,81,0.6)",
-              "0 0 40px rgba(210,170,81,0.25)",
-            ],
           }}
           transition={{
             opacity: { duration: 0.6, delay: 0.5 },
             scale: { duration: 3, repeat: Infinity, repeatType: "reverse", ease: "easeInOut" },
-            boxShadow: { duration: 3, repeat: Infinity, repeatType: "reverse", ease: "easeInOut" },
           }}
           whileHover={{ scale: 1.08 }}
           whileTap={{ scale: 0.95 }}
         >
-          {/* Shine Effect */}
-          <motion.span
-            className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent skew-x-12"
-            aria-hidden
-            animate={{ x: ["-150%", "200%"] }}
-            transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-          />
           <FaWhatsapp className="text-xl relative z-10" />
-          <span className="relative z-10">Book a Consultation</span>
+          <span className="relative z-10">Explore Properties & Start Investing Today</span>
         </motion.button>
       </div>
-
-      {/* Subtle moving gradient glow (adds cinematic depth) */}
-      <motion.div
-        className="absolute bottom-0 left-0 w-full h-40 bg-gradient-to-t from-[#D2AA51]/20 to-transparent blur-2xl z-10 pointer-events-none"
-        animate={{ opacity: [0.35, 0.85, 0.35] }}
-        transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-      />
     </section>
   );
 };
-// About Section Component
+
+// Updated About Section with your content
 const AboutSection = () => {
   return (
     <section id="about" className="relative py-20 bg-[#0D0D21] overflow-hidden">
@@ -430,7 +376,7 @@ const AboutSection = () => {
             </div>
           </motion.div>
 
-          {/* Image/Visual */}
+          {/* Stats */}
           <motion.div
             className="relative"
             initial={{ opacity: 0, x: 60 }}
@@ -438,36 +384,19 @@ const AboutSection = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
-            <div className="bg-gradient-to-br from-[#D2AA51] to-yellow-600 rounded-2xl p-8 text-gray-900">
-              <h3 className="text-2xl font-bold mb-4">Why Choose Vora Global?</h3>
-              <ul className="space-y-3">
-                {[
-                  "Deep Dubai market expertise",
-                  "Transparent pricing & process",
-                  "Developer direct partnerships",
-                  "After-sales support included",
-                  "ROI-focused recommendations",
-                  "Multilingual consultant team"
-                ].map((item, index) => (
-                  <li key={index} className="flex items-center space-x-3">
-                    <div className="w-2 h-2 bg-gray-900 rounded-full"></div>
-                    <span>{item}</span>
-                  </li>
-                ))}
-              </ul>
+            <div className="grid grid-cols-2 gap-6">
+              {[
+                { number: "500+", label: "Properties Sold" },
+                { number: "AED 2B+", label: "Transaction Value" },
+                { number: "98%", label: "Client Satisfaction" },
+                { number: "50+", label: "Developer Partners" }
+              ].map((stat, index) => (
+                <div key={index} className="bg-gray-800/50 p-6 rounded-2xl text-center border border-gray-700">
+                  <div className="text-3xl font-bold text-[#D2AA51] mb-2">{stat.number}</div>
+                  <div className="text-gray-300">{stat.label}</div>
+                </div>
+              ))}
             </div>
-            
-            {/* Floating elements */}
-            <motion.div
-              className="absolute -top-4 -right-4 w-24 h-24 bg-[#D2AA51] rounded-full blur-xl opacity-20"
-              animate={{ scale: [1, 1.2, 1] }}
-              transition={{ duration: 4, repeat: Infinity }}
-            />
-            <motion.div
-              className="absolute -bottom-4 -left-4 w-20 h-20 bg-yellow-400 rounded-full blur-xl opacity-20"
-              animate={{ scale: [1.2, 1, 1.2] }}
-              transition={{ duration: 3, repeat: Infinity }}
-            />
           </motion.div>
         </div>
       </div>
@@ -475,7 +404,7 @@ const AboutSection = () => {
   );
 };
 
-// Property Highlights Section
+// Property Highlights Section (keep your existing component)
 const PropertyHighlights = ({ properties }) => {
   return (
     <section id="properties" className="relative py-20 bg-gray-900 overflow-hidden">
@@ -508,7 +437,6 @@ const PropertyHighlights = ({ properties }) => {
               transition={{ duration: 0.6, delay: index * 0.1 }}
               whileHover={{ y: -10 }}
             >
-              {/* Property Image Placeholder */}
               <div className="h-48 bg-gradient-to-br from-[#D2AA51] to-yellow-600 relative overflow-hidden">
                 <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-all duration-300"></div>
                 <div className="absolute top-4 right-4 bg-gray-900/90 backdrop-blur-sm px-3 py-1 rounded-full text-sm font-semibold text-[#D2AA51]">
@@ -516,7 +444,6 @@ const PropertyHighlights = ({ properties }) => {
                 </div>
               </div>
 
-              {/* Property Details */}
               <div className="p-6">
                 <h3 className="text-xl font-bold text-white mb-2">{property.type}</h3>
                 <p className="text-gray-400 mb-3 flex items-center">
@@ -532,26 +459,12 @@ const PropertyHighlights = ({ properties }) => {
             </motion.div>
           ))}
         </div>
-
-        {/* View All CTA */}
-        <motion.div
-          className="text-center mt-12"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 0.4 }}
-        >
-          <button className="inline-flex items-center gap-2 border-2 border-[#D2AA51] text-[#D2AA51] px-8 py-3 rounded-full font-semibold hover:bg-[#D2AA51] hover:text-gray-900 transition-all duration-300">
-            <FaSearch size={16} />
-            View All Properties
-          </button>
-        </motion.div>
       </div>
     </section>
   );
 };
 
-// Services Section Component
+// Services Section Component (keep your existing component)
 const ServicesSection = ({ services }) => {
   const IconMap = {
     Home: FaHome,
@@ -563,7 +476,6 @@ const ServicesSection = ({ services }) => {
   return (
     <section id="services" className="relative py-20 bg-[#0D0D21] overflow-hidden">
       <div className="container mx-auto px-6">
-        {/* Header */}
         <motion.div
           className="text-center mb-16"
           initial={{ opacity: 0, y: 50 }}
@@ -579,7 +491,6 @@ const ServicesSection = ({ services }) => {
           </p>
         </motion.div>
 
-        {/* Services Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {services.map((service, index) => {
             const Icon = IconMap[service.icon] || FaHome;
@@ -593,12 +504,9 @@ const ServicesSection = ({ services }) => {
                 transition={{ duration: 0.6, delay: index * 0.1 }}
               >
                 <div className="bg-gradient-to-br from-gray-800 to-gray-900 p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-700 group-hover:border-[#D2AA51]/50">
-                  {/* Icon */}
                   <div className={`w-16 h-16 bg-gradient-to-r ${service.color} rounded-2xl flex items-center justify-center text-white text-2xl mb-6`}>
                     <Icon />
                   </div>
-
-                  {/* Content */}
                   <h3 className="text-2xl font-bold text-white mb-4">{service.title}</h3>
                   <ul className="space-y-3">
                     {service.items.map((item, idx) => (
@@ -609,9 +517,6 @@ const ServicesSection = ({ services }) => {
                     ))}
                   </ul>
                 </div>
-
-                {/* Hover Effect */}
-                <div className="absolute inset-0 bg-gradient-to-r from-[#D2AA51] to-yellow-600 rounded-2xl opacity-0 group-hover:opacity-5 transition-opacity duration-300 -z-10"></div>
               </motion.div>
             );
           })}
@@ -621,7 +526,7 @@ const ServicesSection = ({ services }) => {
   );
 };
 
-// Process Section Component
+// Process Section Component (keep your existing component)
 const ProcessSection = ({ processes }) => {
   const ProcessIcons = {
     Goal: () => <Target className="w-8 h-8" />,
@@ -633,7 +538,6 @@ const ProcessSection = ({ processes }) => {
   return (
     <section id="process" className="relative py-20 bg-gradient-to-br from-[#D2AA51] to-yellow-600 overflow-hidden">
       <div className="container mx-auto px-6">
-        {/* Header */}
         <motion.div
           className="text-center mb-16"
           initial={{ opacity: 0, y: 50 }}
@@ -649,9 +553,7 @@ const ProcessSection = ({ processes }) => {
           </p>
         </motion.div>
 
-        {/* Process Steps */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 relative">
-          {/* Connecting Line */}
           <div className="hidden lg:block absolute top-20 left-0 right-0 h-0.5 bg-yellow-500/30"></div>
 
           {processes.map((step, index) => {
@@ -665,17 +567,12 @@ const ProcessSection = ({ processes }) => {
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
               >
-                {/* Step Number */}
                 <div className="w-20 h-20 mx-auto mb-6 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center text-white text-2xl font-bold border border-white/30">
                   {step.id}
                 </div>
-                
-                {/* Icon */}
                 <div className="w-16 h-16 mx-auto mb-4 bg-white rounded-2xl flex items-center justify-center text-gray-900">
                   <Icon />
                 </div>
-
-                {/* Content */}
                 <h3 className="text-xl font-semibold text-gray-900 mb-3">{step.title}</h3>
                 <p className="text-gray-800 leading-relaxed">{step.description}</p>
               </motion.div>
@@ -683,15 +580,11 @@ const ProcessSection = ({ processes }) => {
           })}
         </div>
       </div>
-
-      {/* Background Elements */}
-      <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full blur-3xl"></div>
-      <div className="absolute bottom-0 left-0 w-96 h-96 bg-yellow-400/20 rounded-full blur-3xl"></div>
     </section>
   );
 };
 
-// Testimonials Section Component
+// Testimonials Section Component (keep your existing component)
 const TestimonialsSection = ({ testimonials }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
@@ -711,7 +604,6 @@ const TestimonialsSection = ({ testimonials }) => {
   return (
     <section id="testimonials" className="relative py-20 bg-gray-900 overflow-hidden">
       <div className="container mx-auto px-6">
-        {/* Header */}
         <motion.div
           className="text-center mb-16"
           initial={{ opacity: 0, y: 50 }}
@@ -727,7 +619,6 @@ const TestimonialsSection = ({ testimonials }) => {
           </p>
         </motion.div>
 
-        {/* Testimonial Carousel */}
         <div className="max-w-4xl mx-auto relative">
           <AnimatePresence mode="wait">
             <motion.div
@@ -738,7 +629,6 @@ const TestimonialsSection = ({ testimonials }) => {
               exit={{ opacity: 0, x: -100 }}
               transition={{ duration: 0.5 }}
             >
-              {/* Stars */}
               <div className="flex justify-center mb-6">
                 {[...Array(5)].map((_, i) => (
                   <Star
@@ -748,11 +638,9 @@ const TestimonialsSection = ({ testimonials }) => {
                   />
                 ))}
               </div>
-
               <p className="text-lg md:text-xl text-gray-300 italic text-center leading-relaxed mb-8">
                 "{testimonials[currentIndex].quote}"
               </p>
-              
               <div className="text-center">
                 <div className="text-[#D2AA51] font-semibold text-lg mb-1">
                   {testimonials[currentIndex].name}
@@ -764,7 +652,6 @@ const TestimonialsSection = ({ testimonials }) => {
             </motion.div>
           </AnimatePresence>
 
-          {/* Navigation */}
           <div className="flex justify-center mt-8 space-x-4">
             <button
               onClick={prevTestimonial}
@@ -785,7 +672,7 @@ const TestimonialsSection = ({ testimonials }) => {
   );
 };
 
-// CTA Section Component
+// Updated CTA Section with your content
 const CTASection = ({ onWhatsAppClick }) => {
   return (
     <section id="contact" className="relative py-20 bg-[#0D0D21] overflow-hidden">
@@ -812,37 +699,23 @@ const CTASection = ({ onWhatsAppClick }) => {
           >
             <FaWhatsapp className="text-xl" />
             <span>Talk to an Expert Today</span>
-            <motion.div
-              className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent skew-x-12"
-              animate={{ x: ["-150%", "200%"] }}
-              transition={{
-                duration: 3,
-                repeat: Infinity,
-                ease: "easeInOut",
-              }}
-            />
           </motion.button>
 
           <p className="text-gray-400 mt-6">
-            Get personalized consultation within 24 hours
+            Explore Properties & Start Investing Today
           </p>
         </motion.div>
       </div>
-
-      {/* Background Elements */}
-      <div className="absolute top-0 right-0 w-96 h-96 bg-[#D2AA51]/10 rounded-full blur-3xl"></div>
-      <div className="absolute bottom-0 left-0 w-64 h-64 bg-yellow-400/10 rounded-full blur-3xl"></div>
     </section>
   );
 };
 
-// Footer Component
+// Footer Component (keep your existing footer)
 const Footer = () => {
   return (
     <footer className="bg-gray-900 border-t border-gray-800 py-12">
       <div className="container mx-auto px-6">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-          {/* Company Info */}
           <div className="md:col-span-2">
             <div className="flex items-center space-x-2 mb-4">
               <img
@@ -866,11 +739,10 @@ const Footer = () => {
             </div>
           </div>
 
-          {/* Quick Links */}
           <div>
             <h4 className="text-lg font-semibold text-white mb-4">Quick Links</h4>
             <div className="space-y-2">
-              {['home', 'properties', 'services', 'process', 'testimonials'].map((item) => (
+              {['home', 'about', 'properties', 'services', 'process', 'testimonials'].map((item) => (
                 <button
                   key={item}
                   onClick={() => document.getElementById(item)?.scrollIntoView({ behavior: 'smooth' })}
@@ -882,7 +754,6 @@ const Footer = () => {
             </div>
           </div>
 
-          {/* Contact Info */}
           <div>
             <h4 className="text-lg font-semibold text-white mb-4">Contact Us</h4>
             <div className="space-y-3">
@@ -902,7 +773,6 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* Bottom Bar */}
         <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-500">
           <p>&copy; 2025 Vora Global. All rights reserved. | Dubai Real Estate Experts</p>
         </div>
@@ -911,7 +781,7 @@ const Footer = () => {
   );
 };
 
-// Additional Icons
+// Additional Icons (keep your existing icons)
 const ShieldCheck = () => (
   <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
